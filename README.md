@@ -5,7 +5,7 @@
 ### Randee Orion
 
 ### Links and Resources
-- [Submission PR]()
+- [Submission PR](https://github.com/randee-401-advanced-javascript/lab23/pull/1)
 - [CodePen Code]()
 - [CodePen Live]()
 
