@@ -1,18 +1,25 @@
 import React from 'react';
 
 function FormInput(props){
-  function handleChange(e){
-    props.onChange(e.target.value, props.stateKey);
-  }
 
   return (
-    <div className={'form-input ' + props.className}>
+    <div className={props.className} >
       <label>{props.label}</label>
       <input
-        type={props.type}
-        value={props.value}
-        onChange={handleChange}
+        type='text'
+        value={props.url}
+        onChange={props.onURLChange}
         />
+   
+      <div className='method-select'>
+        <select onChange={props.onMethodChange}>
+            <option value='GET'>Get</option>
+            <option value='POST'>Post</option>
+            <option value='PUT'>Put</option>
+           <option value='DELETE'>Delete</option>
+        </select> 
+        <button onClick={props.onSubmit}>Submit</button>
+      </div>
     </div>
   );
 }
