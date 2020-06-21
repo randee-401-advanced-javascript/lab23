@@ -18,6 +18,20 @@ function FormInput(props){
             <option value='PUT'>Put</option>
            <option value='DELETE'>Delete</option>
         </select> 
+        <div className='body-entry'>
+          <label>Body:</label>
+          <textarea
+            value={props.body}
+            onChange={props.onBodyChange}
+            ></textarea>
+        </div>
+        <div className='header-entry'>
+          <label>Headers:</label>
+          <textarea
+            value={props.headers}
+            onChange={props.onHeadersChange}
+            ></textarea>
+        </div>
         <button onClick={props.onSubmit}>Submit</button>
       </div>
     </div>
