@@ -14,7 +14,7 @@ Click on the CodePen Live link for a hosted version of the lab.
 Click on the CodePen Code link for access to the code. 
 
 ### UML
-![]()
+![UML](lab23UML.png)
 
 
 
