@@ -1,11 +1,11 @@
-# LAB - Class 23
+# LAB - Class 24
 
 ## RESTy
 
 ### Randee Orion
 
 ### Links and Resources
-- [Submission PR](https://github.com/randee-401-advanced-javascript/lab23/pull/1)
+- [Submission PR](</div>)
 - [CodePen Code]()
 - [CodePen Live]()
 
