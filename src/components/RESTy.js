@@ -7,48 +7,70 @@ class RESTy extends React.Component {
     super(props);
 
     this.state = {
-      url: 'https://gitschooledalexaapp.herokuapp.com/potions',
+      url: '',
       method: 'GET',
-      results: [],
+      headers: {},
+      body: {},
     }
   };
 
-  async updateAPIParams(val, key){
-    await this.setState({...this.state, [key]: val})
+  onURLChange(e){
+    console.log('inside URL CHANGE handler')
+    console.log('*****************');
+    console.log('THIS DOT STATE');
+    console.log('*****************');
+    console.log(this.state)
+    console.log('e.target.val', e.target.value);
+    this.setState({...this.state, url: e.target.value})
   }
 
-  async fetchThatAPI () {
-    let url = this.state.url;
+  onMethodChange(e){
+    this.setState({...this.state, method: e.target.value});
+  }
 
-    let res = await fetch(url, {
-      method: this.state.method,
+  async onSubmit () {
+    // console.log('*****************');
+    // console.log('THIS DOT STATE');
+    // console.log('*****************');
+    console.log(this.state)
+    console.log(' attempting to make a ', this.state.method, 'request to ', this.state.url);
+    
+    let body;
+    let headers = {};
+
+    let res = await fetch(this.state.url, {
+      method: this.state.method, 
       headers: {
         Accept: 'application/json',
       }
     });
 
-    let data = await res.json();
-    data = data.results;
-    
-    let objects = [];
+    if (res.status === 200) {
+      body = await res.json();
 
-    for(let i = 0; i < data.length; i ++) {
-      objects.push({ src: data[i].urls.thumb, desc: data[i].description })
+      for (const entry of res.headers.entries()) {
+        headers[entry[0]] = entry[1];
+      }
     }
 
-    this.setState({ ...this.state, results: objects })
+    this.setState({ headers, body });
+ 
   }
 
   render() {
     return (
       <>
-      <h1>GET all your RESTfull info here!</h1>
+      <h1>RESTy</h1>
       <Form
-        label='URL'
-        value={this.state.query}
-        type='text'
-        stateKey='query'
-        onChange={this.updateAPIParams.bind(this)}
+        url={this.state.url}
+        onURLChange={this.onURLChange.bind(this)}
+        onMethodChange={this.onMethodChange.bind(this)}
+        onSubmit={this.onSubmit.bind(this)}
+        />
+      <Results
+        tabWidth={2}
+        headers={this.state.headers}
+        body={this.state.body}
         />
       </>
     )
