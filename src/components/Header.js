@@ -6,10 +6,10 @@ function Header(props){
     <header>
       <ul>
         <li>
-          <link to='/'>Home</link>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <link to='/history'>History</link>
+          <Link to='/history'>History</Link>
         </li>
       </ul>
       <h1>RESTy Application</h1>

@@ -51,7 +51,7 @@ class App extends React.Component {
     await this.onSubmit({ rerun: true });
 
   }
-  async onSumbmit(e) {
+  async onSubmit(e) {
     await this.setState({ loading: true});
     let request = {
       url: this.state.url,
